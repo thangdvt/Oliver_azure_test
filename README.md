@@ -31,3 +31,30 @@ After deploying the AKS resources, configure kubectl to access your AKS cluster.
 
 az aks get-credentials --resource-group <your-resource-group> --name <your-cluster-name>
 This will configure your kubectl to connect to your Azure Kubernetes Service.
+
+4. deploy  service using helm:
+    a.	Chart.yaml
+    -	The primary metadata file for the Helm chart.
+    -	Includes details such as the chart's name, version, and a brief description.
+    b.	values.yaml
+    -	The default configuration values for the Helm chart.
+    o	Parameters in this file can be overridden by user-specified values during deployment.
+    c.	templates/
+      -	Contains Kubernetes manifest templates that define the resources the Helm chart will deploy.
+      -	Each .yaml file is processed by Helm, substituting values defined in values.yaml.
+      c.1	deployment-web.yaml
+        +  Defines the Deployment resource for the web component of the application.
+      c.2	deployment-api.yaml
+        + Specifies the Deployment for the backend API service.
+      c.3	deployment-mongo.yaml
+        + Manages the MongoDB database deployment.
+      c.4	ingress.yaml
+        + Configures the Ingress resource, typically for exposing the web and API services externally.
+      c.5	secret-mongo.yaml
+        + Configures secret in mongo for api connect to mongo database
+    Example Usage
+1.	Install the Chart:
+#	helm install my-web-app ./Aks-web-app-du/ -f custom-values.yaml
+2.	Upgrade the Chart:
+#	helm upgrade my-web-app ./Aks-web-app-du/ -f custom-values.yaml
+
