@@ -42,6 +42,7 @@ This will configure your kubectl to connect to your Azure Kubernetes Service.
     c.	templates/
       -	Contains Kubernetes manifest templates that define the resources the Helm chart will deploy.
       -	Each .yaml file is processed by Helm, substituting values defined in values.yaml.
+        
       c.1	deployment-web.yaml: Defines the Deployment resource for the web component of the application.
 
       c.2	deployment-api.yaml: Specifies the Deployment for the backend API service.
