@@ -1,0 +1,40 @@
+version: "3.8"
+services:
+  web:
+    #build: ./frontend
+    image: origenai/cloud-engineer-test-sample-app-frontend:1.0.0
+    depends_on:
+      - api
+    ports:
+      - "3000:3000"
+    networks:
+      - network-backend
+  api:
+    #build: ./backend
+    image: origenai/cloud-engineer-test-sample-app-backend:1.0.0
+    depends_on:
+      - mongo
+    ports:
+      - "3001:3001"
+    networks: 
+     - network-backend
+  
+  mongo:
+    image: mongo
+    restart: always
+    volumes: 
+      - mongodb_data:/data/db
+    environment: 
+      MONGODB_INITDB_ROOT_USERNAME: username
+      MONGODB_INITDB_ROOT_PASSWORD: password
+    # uncomment following lines to access db locally
+    # ports:
+    #   - 27017:27017
+    networks: 
+     - network-backend
+
+networks:
+  network-backend:
+
+volumes: 
+  mongodb_data:
