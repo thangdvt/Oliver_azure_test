@@ -52,8 +52,8 @@ This will configure your kubectl to connect to your Azure Kubernetes Service.
       c.4	ingress.yaml: Configures the Ingress resource, typically for exposing the web and API services externally.
    
       c.5	secret-mongo.yaml: Configures secret in mongo for api connect to mongo database
-   
-    Example Usage
+
+
 4.1.	Install the Chart:
 #	helm install my-web-app ./Aks-web-app-du/ -f custom-values.yaml
 4.2.	Upgrade the Chart:
