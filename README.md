@@ -4,7 +4,7 @@ First, log in to your Azure account using the Azure CLI:
 # az login
 This will open a browser window to authenticate you. Once authenticated, make sure to set the correct subscription ID for your deployment:
 
-# az account set --subscription "f43dfad2-7616-404b-8932-e01229059371"
+# az account set --subscription "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx
 2. Deploy Infrastructure using Terraform
 The project structure includes the necessary Terraform configurations for deploying Azure resources (e.g., AKS, networking).
 
@@ -54,8 +54,8 @@ This will configure your kubectl to connect to your Azure Kubernetes Service.
       c.5	secret-mongo.yaml: Configures secret in mongo for api connect to mongo database
    
     Example Usage
-1.	Install the Chart:
+4.1.	Install the Chart:
 #	helm install my-web-app ./Aks-web-app-du/ -f custom-values.yaml
-2.	Upgrade the Chart:
+4.2.	Upgrade the Chart:
 #	helm upgrade my-web-app ./Aks-web-app-du/ -f custom-values.yaml
 
